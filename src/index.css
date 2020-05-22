@@ -36,3 +36,7 @@ code {
 .header .active {
   color: #2c7613;
 }
+
+.my-form {
+  width: 500px;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { setUserSession, getTicket, getUser } from "../utils/Commons";
+import { setUserSession } from "../utils/Commons";
 
 const Login = ({ history }) => {
   const username = useFormInput("");

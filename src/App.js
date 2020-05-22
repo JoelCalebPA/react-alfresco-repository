@@ -1,40 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
-import axios from "axios";
 
-import Login from "./component/Login";
-import Dashboard from "./component/Dashboard";
 import Home from "./component/Home";
 
 import PublicRoute from "./utils/PublicRoute";
-import PrivateRoute from "./utils/PrivateRoute";
-
-import { getTicket, removeUserSession, setUserSession } from "./utils/Commons";
+import Books from "./component/Books";
+import Admin from "./component/Admin";
 
 function App() {
-  const [authLoading, setAuthLoading] = useState(true);
-
-  useEffect(() => {
-    const ticket = getTicket();
-    if (!ticket) {
-      return;
-    }
-
-    axios
-      .get(`http://207.246.78.28:8080/alfresco/s/api/login/ticket/${ticket}`)
-      .then((response) => {
-        setUserSession(response.data.data.ticket, "boi");
-        setAuthLoading(false);
-      })
-      .catch((error) => {
-        removeUserSession();
-        setAuthLoading(false);
-      });
-  }, []);
-
-  if (authLoading && getTicket()) {
-    return <div className="content">Checking Authentication...</div>;
-  }
 
   return (
     <div className="App">
@@ -42,22 +15,22 @@ function App() {
         <div>
           <div className="header">
             <NavLink exact activeClassName="active" to="/">
-              Home
+              Inicio
             </NavLink>
-            <NavLink activeClassName="active" to="/login">
-              Login
+            <NavLink activeClassName="active" to="/books">
+              Libros
             </NavLink>
-            <small>(Access without token only)</small>
-            <NavLink activeClassName="active" to="/dashboard">
-              Dashboard
+            <small>(Acceso abierto)</small>
+            <NavLink activeClassName="active" to="/admin">
+              Administrador
             </NavLink>
-            <small>(Access with token only)</small>
+            <small>(Acceso ...)</small>
           </div>
           <div className="content">
             <Switch>
               <Route exact path="/" component={Home} />
-              <PublicRoute path="/login" component={Login} />
-              <PrivateRoute path="/dashboard" component={Dashboard} />
+              <PublicRoute path="/books" component={Books} />
+              <PublicRoute path="/admin" component={Admin} />
             </Switch>
           </div>
         </div>
