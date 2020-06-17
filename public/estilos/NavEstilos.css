@@ -1,0 +1,49 @@
+@charset "ISO-8859-1";
+
+
+#navbarSupportedContent li{
+	
+	padding-left:8px; 
+}
+
+#navbarSupportedContent a:hover{
+	
+	color:6FAFDF;
+}
+
+form #user:hover{
+	
+	transform:scale(1.03);
+    -ms-transform:scale(1.03);
+    filter:invert(0.4) sepia(1) hue-rotate(3.142rad) saturate(1000%);
+    opacity:0.5;
+	}
+
+form #carrito:hover{
+
+	transform:scale(1.03);
+    -ms-transform:scale(1.03);
+    filter:invert(0.4) sepia(1) hue-rotate(3.142rad) saturate(1000%);
+    opacity:0.5;
+}
+
+#logo{
+	
+	padding-right:5px;
+	}
+
+.form-inline{
+	padding-right:18px;
+}
+
+#opciones{
+	position: right;
+	
+}
+#user{
+	padding-right:50px ;
+	
+}
+#carrito{
+	padding-right:50px ;
+}

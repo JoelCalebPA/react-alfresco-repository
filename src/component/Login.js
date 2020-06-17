@@ -12,7 +12,7 @@ const Login = ({ history }) => {
     setError(null);
     setLoading(true);
     axios
-      .post("http://207.246.78.28:8080/alfresco/s/api/login", {
+      .post("http://localhost:8080/alfresco/s/api/login", {
         username: username.value,
         password: password.value,
       })

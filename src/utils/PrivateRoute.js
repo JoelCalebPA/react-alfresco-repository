@@ -2,19 +2,21 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { getToken } from "./Commons";
 
-const PublicRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
       render={(props) =>
-        !getToken() ? (
+        getToken() ? (
           <Component {...props} />
         ) : (
-          <Redirect to={{ pathname: "/" }} />
+          <Redirect
+            to={{ pathname: "/login", state: { from: props.location } }}
+          />
         )
       }
     />
   );
 };
 
-export default PublicRoute;
+export default PrivateRoute;

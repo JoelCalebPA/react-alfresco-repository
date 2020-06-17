@@ -22,7 +22,7 @@ const Admin = ({ history }) => {
     setLoading(true);
     axios
       .post(
-        "http://144.202.41.61:8080/library/api/book/save",
+        "http://localhost:8080/library/api/book/save",
         {
           title: title.value,
           author: { id: author.value },
