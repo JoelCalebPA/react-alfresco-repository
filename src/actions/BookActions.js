@@ -5,6 +5,9 @@ import {
   LIST_BOOKS,
   LIST_BOOKS_OK,
   LIST_BOOKS_ERROR,
+  SELECT_BOOK,
+  SELECT_BOOK_OK,
+  SELECT_BOOK_ERROR,
 } from "../types";
 import axiosClient from "../config/axios";
 import Swal from "sweetalert2";
@@ -78,5 +81,31 @@ const listBooksOk = (books) => ({
 
 const listBooksError = () => ({
   type: LIST_BOOKS_ERROR,
+  payload: true,
+});
+
+export function selectBookAction(book) {
+  return async (dispatch) => {
+    dispatch(selectBook());
+    try {
+      dispatch(selectBookOk(book));
+    } catch (error) {
+      dispatch(selectBookError(error));
+    }
+  };
+}
+
+const selectBook = () => ({
+  type: SELECT_BOOK,
+  payload: true,
+});
+
+const selectBookOk = (book) => ({
+  type: SELECT_BOOK_OK,
+  payload: book,
+});
+
+const selectBookError = () => ({
+  type: SELECT_BOOK_ERROR,
   payload: true,
 });

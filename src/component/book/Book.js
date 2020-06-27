@@ -1,15 +1,44 @@
 import React from "react";
+import "./Book.css";
+import { selectBookAction } from "../../actions/BookActions";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const Book = ({ book }) => {
-  return (
-    <tr>
+  /*<tr>
       <td>{book.title}</td>
       <td>{book.author.name}</td>
       <td>{book.category.name}</td>
       <td>{book.publisher.name}</td>
       <td>{book.publicationDate}</td>
       <td>{book.isbn}</td>
-    </tr>
+    </tr>*/
+
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const redirectDetails = (book) => {
+    dispatch(selectBookAction(book));
+    history.push(`/book/${book.id}`);
+  };
+
+  return (
+    <div className="books-card">
+      <img
+        src={`${process.env.PUBLIC_URL}/img/lib1.jpg`}
+        style={{ width: "100%" }}
+        alt="boi"
+      />
+      <div className="container">
+        <p className="card-title">
+          <b>{book.title}</b>
+        </p>
+        <p className="card-description">{book.author.name}</p>
+        <p>
+          <button onClick={() => redirectDetails(book)}>Detalles</button>
+        </p>
+      </div>
+    </div>
   );
 };
 

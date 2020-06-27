@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Autosuggest from "react-autosuggest";
-import { useSelector } from "react-redux";
 
-const AutoSuggest = ({ array, valuePassed }) => {
-  const [value, setValue] = useState(valuePassed);
+const AutoSuggest = ({ array, value, setValue }) => {
   const [suggestions, setSuggestions] = useState([]);
 
   const getSuggestions = (value) => {

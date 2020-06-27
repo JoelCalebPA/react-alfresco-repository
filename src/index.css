@@ -12,8 +12,8 @@ code {
     monospace;
 }
 
-.content {
-  padding: 20px;
+.main-container {
+  display: grid;
 }
 
 .header {

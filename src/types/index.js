@@ -11,6 +11,10 @@ export const LIST_BOOKS = "LIST_BOOKS";
 export const LIST_BOOKS_OK = "LIST_BOOKS_OK";
 export const LIST_BOOKS_ERROR = "LIST_BOOKS_ERROR";
 
+export const SELECT_BOOK = "SELECT_BOOK";
+export const SELECT_BOOK_OK = "SELECT_BOOK_OK";
+export const SELECT_BOOK_ERROR = "SELECT_BOOK_ERROR";
+
 export const ADD_AUTHOR = "ADD_AUTHOR";
 export const ADD_AUTHOR_OK = "ADD_AUTHOR_OK";
 export const ADD_AUTHOR_ERROR = "ADD_AUTHOR_ERROR";

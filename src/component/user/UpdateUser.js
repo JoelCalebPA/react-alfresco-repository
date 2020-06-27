@@ -17,7 +17,7 @@ const UpdateUser = ({ user }) => {
   const submitUser = (e) => {
     e.preventDefault();
 
-    if (email.trim() === "") {
+    if (email.trim() === "" || name.trim() === "") {
       const alert = {
         msg: "El campo nombre y email son obligatorio",
         classes: "alert alert-danger text-center text-uppercase p3",
@@ -49,7 +49,7 @@ const UpdateUser = ({ user }) => {
                   className="form-control"
                   name="name"
                   disabled="true"
-                  value={name}
+                  value={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="form-group">

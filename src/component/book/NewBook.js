@@ -49,7 +49,6 @@ const NewBook = () => {
   const publishers = useSelector((state) => state.publisher.publishers);
 
   const error = useSelector((state) => state.book.error);
-  const loading = useSelector((state) => state.book.loading);
 
   return (
     <div className="row justify-content-center">
