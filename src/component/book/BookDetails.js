@@ -1,58 +1,117 @@
-import React, { useEffect, useState, Fragment } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, Fragment, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./Book.css";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { getBookAction } from "../../actions/BookActions";
+import {
+  getRatingAction,
+  addNewRatingAction,
+} from "../../actions/RatingActions";
+import Rating from "./Rating";
+import { getToken } from "../../utils/Commons";
+import { addItemToCartAction } from "../../actions/CartAction";
 
 const BookDetails = () => {
   const selectedBook = useSelector((state) => state.book.selectedBook);
+  const user = useSelector((state) => state.user.user);
+  const ratings = useSelector((state) => state.rating.comments);
 
-  const [book, setBook] = useState(selectedBook);
+  const [comment, setComment] = useState("");
   const { id } = useParams();
 
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    if (book == null) {
-      const booki = {
-        title: "fuck u boi",
-        description: "b*tch",
-        author: { name: "stfu b*tch" },
-      };
-      console.log(id);
-      setBook(booki);
+    if (selectedBook == null) {
+      dispatch(getBookAction(id));
     }
-  }, [book, id]);
+    dispatch(getRatingAction(id));
+  }, [id, dispatch, selectedBook, ratings]);
+
+  const addNewRating = (rating) => dispatch(addNewRatingAction(rating));
+
+  const addRating = () => {
+    const rating = {
+      book: id,
+      client: user.client.id,
+      clientName: user.client.name,
+      comment: comment,
+    };
+    addNewRating(rating);
+  };
+
+  const addItemToCart = (item) => dispatch(addItemToCartAction(item));
+
+  const addToCart = () => {
+    const item = {
+      bookId: selectedBook.id,
+      quantity: 1,
+      token: getToken(),
+    };
+    addItemToCart(item);
+    history.push("/cart");
+  };
 
   return (
     <div className="book-details-component">
       <div className="book-details-container">
         <div className="book-details-top">
           <div className="book-image">
-            <img
-              src={`${process.env.PUBLIC_URL}/img/lib1.jpg`}
-              style={{ height: "100%" }}
-              alt="boi"
-            />
+            {selectedBook && (
+              <img
+                src={`${process.env.PUBLIC_URL}/img/libros/${selectedBook.isbn}.jpg`}
+                style={{ height: "400px" }}
+                alt="boi"
+              />
+            )}
           </div>
           <div className="book-spec">
-            {book && (
+            <h4>
+              <p>Datos </p>
+            </h4>
+            {selectedBook && (
               <Fragment>
-                <p>{book.title}</p>
-                <p>{book.author.name}</p>
-                <p>Precio: 100</p>
+                <p>Título: {selectedBook.title}</p>
+                <p>Author: {selectedBook.author.name}</p>
+                <p>Precio: S/ {selectedBook.price}</p>
               </Fragment>
+            )}
+            {getToken() && (
+              <button onClick={addToCart}>Agregar al Carrito</button>
             )}
           </div>
         </div>
         <div className="book-details-bottom">
           <div className="book-abstract">
-            {book && (
+            <h4>Introducción</h4>
+            {selectedBook && (
               <Fragment>
-                <p>{book.description}</p>
+                <p>{selectedBook.description}</p>
               </Fragment>
             )}
           </div>
-          <div className="book-footer">
-            <p>Comentarios</p>
+
+          <div className="book-ratings">
+            <h4>Comentarios</h4>
+            {ratings ? (
+              ratings.map((r) => <Rating key={r.id} rating={r} />)
+            ) : (
+              <div>No hay Comentarios</div>
+            )}
           </div>
+          {getToken() && (
+            <div className="insert-rating">
+              <input
+                type="textarea"
+                name="comment"
+                value={comment}
+                maxLength="255"
+                onChange={(e) => setComment(e.target.value)}
+              />
+              <button onClick={addRating}>Comentar</button>
+            </div>
+          )}
         </div>
       </div>
     </div>

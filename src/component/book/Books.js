@@ -32,7 +32,11 @@ const Books = () => {
           <br />
           <div className="form-name">
             <label htmlFor="category">Filtrar por Categoría</label>
-            <AutoSuggest array={categories} value={category} setValue={setCategory} />
+            <AutoSuggest
+              array={categories}
+              value={category}
+              setValue={setCategory}
+            />
           </div>
         </div>
       </div>

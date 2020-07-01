@@ -8,6 +8,9 @@ import {
   SELECT_BOOK,
   SELECT_BOOK_OK,
   SELECT_BOOK_ERROR,
+  GET_BOOK,
+  GET_BOOK_OK,
+  GET_BOOK_ERROR,
 } from "../types";
 import axiosClient from "../config/axios";
 import Swal from "sweetalert2";
@@ -107,5 +110,33 @@ const selectBookOk = (book) => ({
 
 const selectBookError = () => ({
   type: SELECT_BOOK_ERROR,
+  payload: true,
+});
+
+export function getBookAction(bookId) {
+  return async (dispatch) => {
+    dispatch(getBook());
+    try {
+      const response = await axiosClient.get("/public/book/" + bookId);
+      dispatch(getBookOk(response.data));
+    } catch (error) {
+      console.log(error);
+      dispatch(getBookError());
+    }
+  };
+}
+
+const getBook = () => ({
+  type: GET_BOOK,
+  payload: true,
+});
+
+const getBookOk = (book) => ({
+  type: GET_BOOK_OK,
+  payload: book,
+});
+
+const getBookError = () => ({
+  type: GET_BOOK_ERROR,
   payload: true,
 });

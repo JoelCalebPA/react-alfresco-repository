@@ -71,7 +71,6 @@ export function getUserAction(user) {
         },
       });
       // si no hay error, actualizar el state
-      console.log(response.data);
       dispatch(getUserOk(response.data));
     } catch (error) {
       console.log(error);

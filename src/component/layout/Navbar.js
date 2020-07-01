@@ -1,84 +1,72 @@
 import React, { Fragment } from "react";
 import { getUser, isAdmin, isSubscriber } from "../../utils/Commons";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./Layout.css";
 
 const Navbar = () => {
   return (
-    <nav className="nav-wrapper">
-      <div className="container">
-        <Link to="/" className="brand-logo">
-          Shopping
-        </Link>
-
-        <ul className="right">
-          <li>
-            <NavLink activeClassName="active" to="/">
-              Inicio
-            </NavLink>
-          </li>
-          {getUser() ? (
-            <Fragment>
-              {isAdmin() ? (
-                <Fragment>
+    <nav className="layout-navbar">
+      <ul>
+        <li>
+          <Link to="/">Inicio</Link>
+        </li>
+        {getUser() ? (
+          <Fragment>
+            {isAdmin() ? (
+              <Fragment>
+                <li>
+                  <Link to="/newBook">Registrar Libro</Link>
+                </li>
+                <li>
+                  <Link to="/newAuthor">Registrar Autor</Link>
+                </li>
+                <li>
+                  <Link to="/newCategory">Registrar Categoria</Link>
+                </li>
+                <li>
+                  <Link to="/newPublisher">Registrar Editorial</Link>
+                </li>
+              </Fragment>
+            ) : (
+              <Fragment>
+                <li>
+                  <Link to="/user">Cuenta</Link>
+                </li>
+                <li>
+                  <Link to="/userOrders">Pedidos</Link>
+                </li>
+                {isSubscriber() && (
                   <li>
-                    <NavLink activeClassName="active" to="/newBook">
-                      Registrar Libro
-                    </NavLink>
+                    <Link to="/subscriber">Suscriptor</Link>
                   </li>
-                  <li>
-                    <NavLink activeClassName="active" to="/newAuthor">
-                      Registrar Autor
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink activeClassName="active" to="/newCategory">
-                      Registrar Categoria
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink activeClassName="active" to="/newPublisher">
-                      Registrar Editorial
-                    </NavLink>
-                  </li>
-                </Fragment>
-              ) : (
-                <Fragment>
-                  <li>
-                    <NavLink activeClassName="active" to="/user">
-                      Cuenta
-                    </NavLink>
-                  </li>
-                  {isSubscriber() && (
-                    <li>
-                      <NavLink activeClassName="active" to="/subscriber">
-                        Suscriptor
-                      </NavLink>
-                    </li>
-                  )}
-                </Fragment>
-              )}
-              <li>
-                <NavLink activeClassName="active" to="/logout">
-                  <i className="material-icons">logout</i>
-                </NavLink>
-              </li>
-            </Fragment>
-          ) : (
-            <Fragment>
-              <li>
-                <NavLink activeClassName="active" to="/login">
-                  Login
-                </NavLink>
-              </li>
-              <li>
-                <NavLink activeClassName="active" to="/newAccount">
-                  Registrarse
-                </NavLink>
-              </li>
-            </Fragment>
-          )}
-        </ul>
-      </div>
+                )}
+              </Fragment>
+            )}
+            <li className="navbar-item-right">
+              <Link to="/logout">
+                <i className="material-icons">logout</i>
+              </Link>
+            </li>
+            <li className="navbar-item-right">
+              <Link to="/cart">
+                <i className="material-icons">shopping_cart</i>
+              </Link>
+            </li>
+            <li className="navbar-item-right">
+              <Link to="#">{getUser()}</Link>
+            </li>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <li className="navbar-item-right">
+              <Link to="/newAccount">Registrarse</Link>
+            </li>
+            <li className="navbar-item-right">
+              <Link to="/login">Login</Link>
+            </li>
+          </Fragment>
+        )}
+      </ul>
     </nav>
   );
 };

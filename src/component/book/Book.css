@@ -48,7 +48,7 @@ img {
   font-size: 22px;
 }
 
-.books-card button {
+.books-component button {
   border: none;
   outline: 0;
   padding: 10px;
@@ -89,11 +89,11 @@ img {
 }
 
 .book-image {
-  max-height: 500px;
+  max-height: 400px;
 }
 
 .book-spec {
-  background-color: thistle;
+  background-color: whitesmoke;
 }
 
 .book-details-bottom {
@@ -104,10 +104,37 @@ img {
 
 .book-abstract {
   height: 200px;
-  background-color: antiquewhite;
 }
 
-.book-footer {
-  height: 150px;
-  background-color: cyan;
+.book-ratings {
+  background-color: white;
+}
+
+.rating {
+  height: 100px;
+  margin: 10px;
+  border: 1px solid;
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+.rating-user {
+  padding: 10px;
+  background-color: azure;
+}
+
+.rating-comment {
+  padding: 10px;
+  background-color: bisque;
+}
+
+.book-details-component button {
+  border: none;
+  outline: 0;
+  padding: 10px;
+  color: white;
+  background-color: navy;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
 }

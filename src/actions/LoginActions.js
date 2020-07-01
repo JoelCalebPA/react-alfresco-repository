@@ -29,8 +29,7 @@ export function loginAction(user) {
         response.data.user.email,
         role.name
       );
-      console.log(response.data.user.email);
-      Swal.fire("Correcto", "Inicio sesión correctamente", "success");
+      window.location = "http://localhost:3000";
     } catch (error) {
       console.log(error);
       dispatch(loginError(error));

@@ -1,0 +1,142 @@
+.cart-component {
+  margin: 1.5% 1.5%;
+  display: grid;
+  grid-template-columns: auto;
+  justify-items: center;
+}
+
+.cart-container {
+  padding: 1.5%;
+  width: 1000px;
+  display: grid;
+  grid-row-gap: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.cart-container table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.cart-container td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.cart-container tr:last-child {
+  background-color: #dddddd;
+}
+
+.cart-container button {
+  border: none;
+  outline: 0;
+  padding: 10px;
+  color: white;
+  background-color: navy;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.order-component {
+  margin: 1.5% 1.5%;
+  display: grid;
+  justify-items: center;
+}
+
+.order-container {
+  padding: 1.5%;
+  width: 1000px;
+  display: grid;
+  grid-row-gap: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  grid-template-columns: auto 25%;
+}
+
+.order-form {
+  background-color: antiquewhite;
+}
+
+.order-form input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.order-form input[type="text"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.order-form button {
+  border: none;
+  outline: 0;
+  padding: 10px;
+  color: white;
+  background-color: navy;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.order-cart {
+  background-color: beige;
+}
+
+.order-cart ul {
+  list-style-type: none;
+}
+
+.user-orders-component {
+  margin: 1.5% 1.5%;
+  display: grid;
+  justify-items: center;
+}
+
+.user-orders-container {
+  padding: 1.5%;
+  width: 1000px;
+  display: grid;
+  grid-row-gap: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  grid-template-columns: auto 40%;
+  border-radius: 5px;
+}
+
+.user-orders-container tr:last-child {
+  background-color: #dddddd;
+}
+
+.order-items {
+  padding: 10px;
+}
+
+.order-items ul {
+  list-style-type: none;
+}
+
+.user-orders table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.user-orders td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}

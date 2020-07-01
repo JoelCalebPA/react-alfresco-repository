@@ -7,6 +7,8 @@ import { listAuthorsAction } from "../../actions/AuthorActions";
 import { listBooksAction } from "../../actions/BookActions";
 import { getToken, getUser } from "../../utils/Commons";
 import { getUserAction } from "../../actions/UserActions";
+import { getClientCartAction } from "../../actions/CartAction";
+import { getClientOrdersAction } from "../../actions/OrderAction";
 
 const Start = () => {
   const dispatch = useDispatch();
@@ -22,7 +24,11 @@ const Start = () => {
     loadPublishers();
     if (getToken()) {
       const loadUser = () => dispatch(getUserAction({ email: getUser() }));
+      const loadShoppingCart = () => dispatch(getClientCartAction());
+      const loadOrders = () => dispatch(getClientOrdersAction());
+      loadShoppingCart();
       loadUser();
+      loadOrders();
     }
   });
   return <div></div>;

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../actions/LoginActions";
 import { showAlertAction, hideAlertAction } from "../../actions/AlertActions";
 
-const Login = ({ history }) => {
+const Login = () => {
   const [user, saveUser] = useState({
     email: "",
     password: "",
@@ -35,9 +35,7 @@ const Login = ({ history }) => {
       return;
     }
     dispatch(hideAlertAction());
-
     const user = { email: email, password: password };
-
     doLogin(user);
   };
 

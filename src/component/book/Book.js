@@ -25,7 +25,7 @@ const Book = ({ book }) => {
   return (
     <div className="books-card">
       <img
-        src={`${process.env.PUBLIC_URL}/img/lib1.jpg`}
+        src={`${process.env.PUBLIC_URL}/img/libros/${book.isbn}.jpg`}
         style={{ width: "100%" }}
         alt="boi"
       />

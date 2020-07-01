@@ -8,6 +8,9 @@ import {
   SELECT_BOOK,
   SELECT_BOOK_OK,
   SELECT_BOOK_ERROR,
+  GET_BOOK,
+  GET_BOOK_OK,
+  GET_BOOK_ERROR,
 } from "../types";
 
 const initialState = {
@@ -19,6 +22,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    case GET_BOOK:
     case SELECT_BOOK:
     case LIST_BOOKS:
     case ADD_BOOK:
@@ -38,6 +42,7 @@ export default function (state = initialState, action) {
         loading: false,
         books: [...state.books, action.payload],
       };
+    case GET_BOOK_ERROR:
     case SELECT_BOOK_ERROR:
     case LIST_BOOKS_ERROR:
     case ADD_BOOK_ERROR:
@@ -46,6 +51,7 @@ export default function (state = initialState, action) {
         loading: false,
         error: action.payload,
       };
+    case GET_BOOK_OK:
     case SELECT_BOOK_OK:
       return {
         ...state,

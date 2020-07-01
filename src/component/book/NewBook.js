@@ -11,6 +11,7 @@ const NewBook = () => {
   const [publisher, setPublisher] = useState({});
   const [publicationDate, setPublicationDate] = useState("");
   const [isbn, setIsbn] = useState("");
+  const [description, setDescription] = useState("");
 
   // usar dispatch para llamar actions
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ const NewBook = () => {
       publisher: { id: publisher, name: "" },
       publicationDate: publicationDate,
       isbn: isbn,
+      description: description,
     };
     addBook(book);
   };
@@ -143,6 +145,17 @@ const NewBook = () => {
                   name="isbn"
                   value={isbn}
                   onChange={(e) => setIsbn(e.target.value)}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Descripción</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
 

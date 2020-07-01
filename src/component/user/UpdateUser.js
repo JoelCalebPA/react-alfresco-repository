@@ -48,8 +48,9 @@ const UpdateUser = ({ user }) => {
                   type="text"
                   className="form-control"
                   name="name"
-                  disabled="true"
-                  value={(e) => setName(e.target.value)}
+                  disabled={true}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -68,7 +69,7 @@ const UpdateUser = ({ user }) => {
                   type="text"
                   className="form-control"
                   name="address"
-                  value={address}
+                  value={address ?? ''}
                   onChange={(e) => setAddress(e.target.value)}
                 />
               </div>

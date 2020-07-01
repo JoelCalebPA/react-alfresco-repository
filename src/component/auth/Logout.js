@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { removeUserSession } from "../../utils/Commons";
 
-const Logout = ({ history }) => {
+const Logout = () => {
   useEffect(() => {
     removeUserSession();
-    history.push("/");
+    window.location = "http://localhost:3000"
   });
-  return <div>boi</div>;
+  return <div></div>;
 };
 
 export default Logout;

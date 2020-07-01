@@ -7,6 +7,9 @@ import AlertReducer from "./AlertReducer";
 import LoginReducer from "./LoginReducer";
 import SignUpReducer from "./SignUpReducer";
 import UserReducers from "./UserReducers";
+import RatingReducer from "./RatingReducer";
+import CartReducer from "./CartReducer";
+import OrderReducer from "./OrderReducer";
 
 export default combineReducers({
   alert: AlertReducer,
@@ -17,4 +20,7 @@ export default combineReducers({
   login: LoginReducer,
   signup: SignUpReducer,
   user: UserReducers,
+  rating: RatingReducer,
+  cart: CartReducer,
+  order: OrderReducer,
 });
