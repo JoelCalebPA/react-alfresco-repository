@@ -11,6 +11,8 @@ const NewBook = () => {
   const [publisher, setPublisher] = useState({});
   const [publicationDate, setPublicationDate] = useState("");
   const [isbn, setIsbn] = useState("");
+  const [price, setPrice] = useState("");
+  const [stock, setStock] = useState("");
   const [description, setDescription] = useState("");
 
   // usar dispatch para llamar actions
@@ -40,6 +42,8 @@ const NewBook = () => {
       publisher: { id: publisher, name: "" },
       publicationDate: publicationDate,
       isbn: isbn,
+      price: price,
+      stock: stock,
       description: description,
     };
     addBook(book);
@@ -145,6 +149,28 @@ const NewBook = () => {
                   name="isbn"
                   value={isbn}
                   onChange={(e) => setIsbn(e.target.value)}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Precio</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="price"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Stock</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="stock"
+                  value={stock}
+                  onChange={(e) => setStock(e.target.value)}
                 />
               </div>
 

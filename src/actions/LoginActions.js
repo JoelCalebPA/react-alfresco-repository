@@ -1,6 +1,6 @@
 import { LOGIN, LOGIN_OK, LOGIN_ERROR } from "../types";
 
-import axiosClient from "../config/axios";
+import axiosClient, { HOST_URL } from "../config/axios";
 import Swal from "sweetalert2";
 import { setUserSession } from "../utils/Commons";
 
@@ -29,7 +29,7 @@ export function loginAction(user) {
         response.data.user.email,
         role.name
       );
-      window.location = "http://localhost:3000";
+      window.location = HOST_URL;
     } catch (error) {
       console.log(error);
       dispatch(loginError(error));

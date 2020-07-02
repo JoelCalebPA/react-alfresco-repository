@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { removeUserSession } from "../../utils/Commons";
+import { HOST_URL } from "../../config/axios";
 
 const Logout = () => {
   useEffect(() => {
     removeUserSession();
-    window.location = "http://localhost:3000"
+    window.location = HOST_URL;
   });
   return <div></div>;
 };
