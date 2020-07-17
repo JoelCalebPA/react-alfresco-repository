@@ -10,6 +10,9 @@ import UserReducers from "./UserReducers";
 import RatingReducer from "./RatingReducer";
 import CartReducer from "./CartReducer";
 import OrderReducer from "./OrderReducer";
+import SubscriptionReducer from "./SubscriptionReducer";
+import ReportReducer from "./ReportReducer";
+import DiscountReducer from "./DiscountReducer";
 
 export default combineReducers({
   alert: AlertReducer,
@@ -23,4 +26,7 @@ export default combineReducers({
   rating: RatingReducer,
   cart: CartReducer,
   order: OrderReducer,
+  subscription: SubscriptionReducer,
+  report: ReportReducer,
+  discount: DiscountReducer,
 });

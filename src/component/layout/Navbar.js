@@ -26,6 +26,15 @@ const Navbar = () => {
                 <li>
                   <Link to="/newPublisher">Registrar Editorial</Link>
                 </li>
+                <li>
+                  <Link to="/subscriptions">Suscriptores</Link>
+                </li>
+                <li>
+                  <Link to="/report">Ventas</Link>
+                </li>
+                <li>
+                  <Link to="/discount">Descuentos</Link>
+                </li>
               </Fragment>
             ) : (
               <Fragment>

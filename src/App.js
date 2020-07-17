@@ -23,6 +23,9 @@ import Navbar from "./component/layout/Navbar";
 import Cart from "./component/user/Cart";
 import UserOrders from "./component/user/UserOrders";
 import Checkout from "./component/user/Checkout";
+import Subscriptions from "./component/admin/Subscriptions";
+import Sales from "./component/admin/Sales";
+import Discounts from "./component/admin/Discounts";
 
 function App() {
   return (
@@ -47,6 +50,9 @@ function App() {
               <PrivateRoute path="/newCategory" component={NewCategory} />
               <PrivateRoute path="/newPublisher" component={NewPublisher} />
               <PrivateRoute path="/subscriber" component={Subscriber} />
+              <PrivateRoute path="/subscriptions" component={Subscriptions} />
+              <PrivateRoute path="/report" component={Sales} />
+              <PrivateRoute path="/discount" component={Discounts} />
               <PrivateRoute path="/user" component={User} />
             </Switch>
           </div>

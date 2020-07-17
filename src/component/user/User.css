@@ -106,18 +106,28 @@ th {
 }
 
 .user-orders-container {
+  display: grid;
+}
+
+.user-orders-top {
   padding: 1.5%;
   width: 1000px;
   display: grid;
   grid-row-gap: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  grid-template-columns: auto 40%;
+  grid-template-columns: auto;
   border-radius: 5px;
 }
 
-.user-orders-container tr:last-child {
+.user-orders-top th {
   background-color: #dddddd;
+}
+
+.user-orders-bottom {
+  margin-top: 1.5%;
+  max-width: 1000px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .order-items {

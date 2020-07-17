@@ -1,0 +1,33 @@
+.subscriptions-component {
+  margin: 1.5% 1.5%;
+  display: grid;
+  justify-items: center;
+}
+
+.subscriptions-container {
+  padding: 1.5%;
+  width: 1000px;
+  display: grid;
+  grid-row-gap: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  grid-template-columns: auto;
+  border-radius: 5px;
+}
+
+.subscriptions-container th {
+  background-color: #dddddd;
+}
+
+.subscriptions table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.subscriptions td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
